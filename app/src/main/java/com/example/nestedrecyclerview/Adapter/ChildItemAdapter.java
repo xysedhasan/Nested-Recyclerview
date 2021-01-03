@@ -13,9 +13,7 @@ import com.example.nestedrecyclerview.R;
 
 import java.util.List;
 
-public class ChildItemAdapter
-        extends RecyclerView
-        .Adapter<ChildItemAdapter.ChildViewHolder> {
+public class ChildItemAdapter extends RecyclerView.Adapter<ChildItemAdapter.ChildViewHolder> {
 
     private List<ChildItem> ChildItemList;
 
@@ -27,41 +25,29 @@ public class ChildItemAdapter
 
     @NonNull
     @Override
-    public ChildViewHolder onCreateViewHolder(
-            @NonNull ViewGroup viewGroup,
-            int i)
+    public ChildViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
     {
 
         // Here we inflate the corresponding
         // layout of the child item
-        View view = LayoutInflater
-                .from(viewGroup.getContext())
-                .inflate(
-                        R.layout.child_item,
-                        viewGroup, false);
-
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.child_item, viewGroup, false);
         return new ChildViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(
-            @NonNull ChildViewHolder childViewHolder,
-            int position)
+    public void onBindViewHolder(@NonNull ChildViewHolder childViewHolder, int position)
     {
 
         // Create an instance of the ChildItem
         // class for the given position
-        ChildItem childItem
-                = ChildItemList.get(position);
+        ChildItem childItem = ChildItemList.get(position);
 
         // For the created instance, set title.
         // No need to set the image for
         // the ImageViews because we have
         // provided the source for the images
         // in the layout file itself
-        childViewHolder
-                .ChildItemTitle
-                .setText(childItem.getChildItemTitle());
+        childViewHolder.ChildItemTitle.setText(childItem.getChildItemTitle());
     }
 
     @Override
@@ -88,9 +74,7 @@ public class ChildItemAdapter
         ChildViewHolder(View itemView)
         {
             super(itemView);
-            ChildItemTitle
-                    = itemView.findViewById(
-                    R.id.child_item_title);
+            ChildItemTitle = itemView.findViewById(R.id.child_item_title);
         }
     }
 }
